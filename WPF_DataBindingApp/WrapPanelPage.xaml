@@ -1,0 +1,38 @@
+﻿<Page x:Class="WPF_DataBindingApp.WrapPanelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_DataBindingApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="WrapPanelPage">
+
+    <WrapPanel Orientation="Vertical" >
+        <Button>Test Button 1</Button>
+        <Button>Test Button 2</Button>
+        <Button>Test Button 3</Button>
+        <Button>Test Button 4</Button>
+        <Button Height="40">Test Button 5</Button>
+        <Button>Test Button 6</Button>
+        <Button>Test Button 7</Button>
+        <Button>Test Button 8</Button>
+        <Button Width="140" Height="50">Test Button 9</Button>
+        <Button>Test Button 10</Button>
+        <Button>Test Button 11</Button>
+        <Button>Test Button 12</Button>
+        <Button>Test Button 1</Button>
+        <Button>Test Button 2</Button>
+        <Button>Test Button 3</Button>
+        <Button>Test Button 4</Button>
+        <Button Height="40">Test Button 5</Button>
+        <Button>Test Button 6</Button>
+        <Button>Test Button 7</Button>
+        <Button>Test Button 8</Button>
+        <Button Width="100">Test Button 9</Button>
+        <Button>Test Button 10</Button>
+        <Button>Test Button 11</Button>
+        <Button>Test Button 12</Button>
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ToDockPanelPage_Click" Background="Red" >Go To Dock Panel Page</Button>
+    </WrapPanel>
+</Page>
