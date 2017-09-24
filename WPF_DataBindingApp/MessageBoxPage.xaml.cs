@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +24,9 @@ namespace WPF_DataBindingApp
     {
         public MessageBoxPage()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
+
 
         private void ExitCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -70,6 +73,44 @@ namespace WPF_DataBindingApp
             MessageBox.Show("Hello, world!", "My App", MessageBoxButton.OK, MessageBoxImage.Question);
             MessageBox.Show("Hello, world!", "My App", MessageBoxButton.OK, MessageBoxImage.Stop);
             MessageBox.Show("Hello, world!", "My App", MessageBoxButton.OK, MessageBoxImage.Warning);
+        }
+
+        private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            // openFileDialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+                txtEditor.Text = File.ReadAllText(openFileDialog.FileName);
+        }
+
+        private void btnOpenMultiFiles_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            if (openFileDialog.ShowDialog() == true)
+            {
+                foreach (string filename in openFileDialog.FileNames)
+                    lbFiles.Items.Add(System.IO.Path.GetFileName(filename));
+            }
+        }
+
+        private void btnSaveFile_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllText(saveFileDialog.FileName, savetxtEditor.Text);
+        }
+
+        private void GoToCustomWindow_Click(object sender, RoutedEventArgs e)
+        {
+            //CustomInputWindow wd = new CustomInputWindow("Your question", "Your answer");
+            //this.NavigationService.Navigate(wd);
+            MessageBox.Show("Take a break!!!");
+            Application.Current.Shutdown();
         }
     }
 }

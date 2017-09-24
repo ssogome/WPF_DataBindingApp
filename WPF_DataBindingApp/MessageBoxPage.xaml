@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:WPF_DataBindingApp"
       xmlns:self="clr-namespace:WPF_DataBindingApp.Helpers"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="MessageBoxPage">
+      d:DesignHeight="600" d:DesignWidth="500"
+      Title="MessageBoxPage" Width="500" Height="600">
 
     <Page.CommandBindings>
         <CommandBinding Command="self:CustomCommands.Exit" Executed="ExitCommand_Executed" CanExecute="ExitCommand_CanExecute"/>
@@ -17,5 +17,26 @@
         <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="50" Content="MsgBox with title" Background="Red" Click="DisplayMsg_Click"></Button>
         <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="50" Content="MsgBox with xtra btn" Background="Green" Click="MsgWithXtraBtn_Click"></Button>
         <Button VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="50" Content="MsgBox with Icon" Background="Violet" Click="MsgWithIcon_Click"></Button>
+
+        <DockPanel Margin="10">
+            <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+                 <Button Name="btnOpenFile" Click="btnOpenFile_Click">Open file</Button>
+              </WrapPanel>
+           <TextBox Name="txtEditor" />
+         </DockPanel>
+        <DockPanel Margin="10">
+              <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+               <Button Name="btnOpenMultiFile" Click="btnOpenMultiFiles_Click">Open Multiple files</Button>
+            </WrapPanel>
+          <ListBox Name="lbFiles" />
+        </DockPanel>
+        <DockPanel Margin="10">
+          <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
+                <Button Name="btnSaveFile" Click="btnSaveFile_Click">Save file</Button>
+            </WrapPanel>
+          <TextBox Name="savetxtEditor" TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        </DockPanel>
+
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="150" Height="20" Click="GoToCustomWindow_Click" Background="Red">Go To Custom Window</Button>
     </StackPanel>
 </Page>

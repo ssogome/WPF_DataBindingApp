@@ -58,6 +58,9 @@
       <DependentUpon>BindingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="boolToBrushConverter.cs" />
+    <Compile Include="CustomInputWindow.xaml.cs">
+      <DependentUpon>CustomInputWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DockPanelPage.xaml.cs">
       <DependentUpon>DockPanelPage.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <DependentUpon>WrapPanelPage.xaml</DependentUpon>
     </Compile>
     <Page Include="BindingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomInputWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\questionMarkImge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Watermark.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
